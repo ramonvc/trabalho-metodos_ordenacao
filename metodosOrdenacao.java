@@ -1,7 +1,6 @@
 public class metodosOrdenacao {
     static int contador = 0;
 
-    
     public static int[] bubblesort(int v[]) {
         int contador = 0;
         for (int i = 0; i < v.length - 1; i++) {
@@ -77,30 +76,30 @@ public class metodosOrdenacao {
         return i + 1;
     }
 
-    public static int[] piorCaso(int tamanho_total) {
-        int[] v = new int[tamanho_total];
+    public static int[] piorCaso(int tamanho) {
+        int[] v = new int[tamanho];
 
-        for (int i = 0; i < tamanho_total; i++) {
-            v[i] = tamanho_total - i;
+        for (int i = 0; i < tamanho; i++) {
+            v[i] = tamanho - i;
         }
 
         return v;
     }
 
-    public static int[] medioCaso(int tamanho_total) {
-        int[] v = new int[tamanho_total];
+    public static int[] medioCaso(int tamanho) {
+        int[] v = new int[tamanho];
 
-        for (int i = 0; i < tamanho_total; i++) {
-            v[i] = (int) (Math.random() * tamanho_total);
+        for (int i = 0; i < tamanho; i++) {
+            v[i] = (int) (Math.random() * tamanho);
         }
 
         return v;
     }
 
-    public static int[] melhorCaso(int tamanho_total) {
-        int[] v = new int[tamanho_total];
+    public static int[] melhorCaso(int tamanho) {
+        int[] v = new int[tamanho];
 
-        for (int i = 0; i < tamanho_total; i++) {
+        for (int i = 0; i < tamanho; i++) {
             v[i] = i;
         }
 
@@ -111,8 +110,8 @@ public class metodosOrdenacao {
         int tamanho_total = 1000;
 
         int[] melhor = melhorCaso(tamanho_total);
-        int[] pior = piorCaso(tamanho_total);
         int[] medio = medioCaso(tamanho_total);
+        int[] pior = piorCaso(tamanho_total);
 
 
 
@@ -121,11 +120,11 @@ public class metodosOrdenacao {
         System.out.println("-------------------BUBBLESORT-------------------");
         System.out.println("\n\n\n");
 
-        System.out.println("\nBUBBLESORT PIOR CASO\n");
+        System.out.println("\nBUBBLESORT MELHOR CASO\n");
         for (int i = 1; i <= tamanho_total; i++) {
-            bubblesort(piorCaso(i));
+            bubblesort(melhorCaso(i));
         }
-
+        
         System.out.println("\nBUBBLESORT CASOS MÉDIOS\n");
         for (int i = 0; i <= 10; i++) {
             System.out.println("\nCaso médio N°: " + i + "\n");
@@ -136,6 +135,11 @@ public class metodosOrdenacao {
             medio = medioCaso(tamanho_total);
         }
 
+        System.out.println("\nBUBBLESORT PIOR CASO\n");
+        for (int i = 1; i <= tamanho_total; i++) {
+            bubblesort(piorCaso(i));
+        }
+
 
 
 
@@ -143,12 +147,12 @@ public class metodosOrdenacao {
         System.out.println("-------------------INSERTIONSORT-------------------");
         System.out.println("\n\n\n");
 
-        System.out.println("\nINSERTIONSORT PIOR CASO\n");
+        System.out.println("\nINSERTION MELHOR CASO\n");
         for (int i = 1; i <= tamanho_total; i++) {
-            insertionsort(piorCaso(i));
+            insertionsort(melhorCaso(i));
         }
 
-        System.out.println("\nBUBBLESORT CASOS MÉDIOS\n");
+        System.out.println("\nINSERTIONSORT CASOS MÉDIOS\n");
         for (int i = 0; i <= 10; i++) {
             System.out.println("\nCaso médio N°: " + i + "\n");
 
@@ -158,16 +162,21 @@ public class metodosOrdenacao {
             medio = medioCaso(tamanho_total);
         }
 
+        System.out.println("\nINSERTIONSORT PIOR CASO\n");
+        for (int i = 1; i <= tamanho_total; i++) {
+            insertionsort(piorCaso(i));
+        }
 
 
+        
 
         System.out.println("------------------------------------------------");
         System.out.println("-------------------QUICKSORT-------------------");
         System.out.println("\n\n\n");
 
-        System.out.println("\nQUICKSORT PIOR CASO\n");
+        System.out.println("\nQUICKSORT MELHOR CASO\n");
         for (int i = 1; i <= tamanho_total; i++) {
-            quicksort(piorCaso(i));
+            quicksort(melhorCaso(i));
         }
 
         System.out.println("\nQUICKSORT CASOS MÉDIOS\n");
@@ -178,6 +187,11 @@ public class metodosOrdenacao {
                 quicksort(medioCaso(j));
             }
             medio = medioCaso(tamanho_total);
+        }
+
+        System.out.println("\nQUICKSORT PIOR CASO\n");
+        for (int i = 1; i <= tamanho_total; i++) {
+            quicksort(piorCaso(i));
         }
     }
 }
